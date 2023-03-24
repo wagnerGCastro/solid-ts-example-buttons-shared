@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": [
+      "es5",
+     "es6"
+   ],
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["src/*"],
+      "tests/*": ["__tests__/*"]
+    }
+  },
+  "include": ["src/**/*.js", "src/**/*.ts", "__tests__"],
+  "exclude": ["node_modules"]
+}
