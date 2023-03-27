@@ -1,8 +1,14 @@
 /* typescript-eslint-disable @typescript-eslint/no-implicit-any */
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
+import EventHandler from './EventHandler';
+
 export default class ShareButton {
-  constructor(public url: string) {}
+  public eventHandler: EventHandler;
+
+  constructor(public url: string) {
+    this.eventHandler = new EventHandler();
+  }
 
   public bind(clazz: string, socialNetwork: string) {
     let link = '';
@@ -22,20 +28,6 @@ export default class ShareButton {
       console.log('link', link);
     }
 
-    const elements = document.querySelectorAll(clazz);
-
-    // if (Array.isArray(elements)) {
-    //   for (const element of elements) {
-    //     element.addEventListener('click', () => window.open(link));
-    //   }
-    // }
-
-    // for (const element of elements) {
-    //   element.addEventListener('click', () => window.open(link));
-    // }
-
-    elements.forEach(element => {
-      element.addEventListener('click', () => window.open(link));
-    });
+    this.eventHandler.addEventListenerToClass(clazz, 'click', () => window.open(link));
   }
 }
