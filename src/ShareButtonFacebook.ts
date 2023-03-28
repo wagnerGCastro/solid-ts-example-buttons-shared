@@ -1,11 +1,11 @@
 /* typescript-eslint-disable @typescript-eslint/no-implicit-any */
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import AbstractShareButton from './AbstractShareButton';
+import AbstractLinkShareButton from './AbstractLinkShareButton';
 
-export default class ShareButtonFacebook extends AbstractShareButton {
+export default class ShareButtonFacebook extends AbstractLinkShareButton {
   constructor(public clazz: string, public url: string) {
-    super(clazz);
+    super(clazz, url);
   }
 
   public createLink() {

@@ -9,10 +9,10 @@ export default abstract class AbstractShareButton {
     this.eventHandler = new EventHandler();
   }
 
-  abstract createLink(): any;
+  abstract createAction(): any;
 
   public bind() {
-    const link = this.createLink();
-    this.eventHandler.addEventListenerToClass(this.clazz, 'click', () => window.open(link));
+    const action = this.createAction();
+    this.eventHandler.addEventListenerToClass(this.clazz, 'click', action);
   }
 }
